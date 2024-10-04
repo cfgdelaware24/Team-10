@@ -6,6 +6,15 @@ const professionalSchema =  new mongoose.Schema({
     type: String,
     required: true
   },
+  user_email: {
+    type: String
+  },
+  email_verified: { // field that stores data on weather on not the user is linkedin email verified
+    type: Boolean
+  },
+  profile_picture: {
+    type: String //field that keeps trck of the path back to where a users logo/pfp is stored(more storage efficent)
+  }, 
   skills: {
     type: [String], // Array of strings representing the professional's skills
     required: true
@@ -15,10 +24,6 @@ const professionalSchema =  new mongoose.Schema({
       type: String,
       required: true
     },
-    country: {
-      type: String,
-      required: true
-    }
   },
   // A short description of a proffessional and their background for the ngo/non profit to read about
   Description: {
