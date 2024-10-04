@@ -19,18 +19,18 @@ const professionalSchema =  new mongoose.Schema({
     type: [String], // Array of strings representing the professional's skills
     required: true
   },
-  location: { // Field storing where the professional is located 
-    city: {
-      type: String,
-      required: true
+  location: { // Field storing where the professional is located (in delaware)
+    county: { // county the proffessional is located in in delaware 
+        type: [String], // array holding the counties in delaware 
+        required: true
     },
   },
-  // A short description of a proffessional and their background for the ngo/non profit to read about
+  // A short description of a professional and their background for the ngo/non profit to read about
   Description: {
     type: String,
     required: true
   },
-  interests: {
+  interests: { // matches sector field in ngo
     type: [String], // Array of strings representing the professional's interests (were going to use this for the matching)
     required: true
   },
