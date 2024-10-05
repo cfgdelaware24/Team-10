@@ -1,4 +1,8 @@
+import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import SignInPage from './pages/SignInPage'; 
+import RegistrationPageNGO from './pages/RegistrationPageNGO';
+import RegistrationPageProfessional from './pages/RegistrationPageProfessional'; 
 import WelcomePage from './WelcomePage';
 import OpenPositionsPage from './OpenPositionsPage';
 import NGOProfilePage from './NGOProfilePage';
