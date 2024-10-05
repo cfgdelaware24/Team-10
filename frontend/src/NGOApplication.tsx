@@ -1,1 +1,1 @@
-//page for viewing applications based on a selected osition
+//page for viewing applications based on a selected position
