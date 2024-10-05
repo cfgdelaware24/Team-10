@@ -38,7 +38,10 @@ const AddNGOProfilePage: React.FC = () => {
             <div className="bg-white bg-opacity-75 p-6 rounded-lg shadow-md w-3/4 md:w-1/2">
                 <h1 className="text-2xl font-bold mb-6 text-center">Add NGO Profile</h1>
                 
+<<<<<<< HEAD
                 {/* format for form to add profile */}
+=======
+>>>>>>> frontend
                 <form onSubmit={handleSubmit} className="space-y-4">
                     <div>
                         <label className="block text-lg font-semibold">Name:</label>
