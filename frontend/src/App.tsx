@@ -3,6 +3,12 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import SignInPage from './pages/SignInPage'; 
 import RegistrationPageNGO from './pages/RegistrationPageNGO';
 import RegistrationPageProfessional from './pages/RegistrationPageProfessional'; 
+import WelcomePage from './WelcomePage';
+import SignUpPage from './SignUpPage';
+import OpenPositionsPage from './OpenPositionsPage';
+import NGOProfilePage from './NGOProfilePage';
+
+import './App.css';
 
 function App() {
   return (
@@ -13,6 +19,11 @@ function App() {
         <Route path="/register-professional" element={<RegistrationPageProfessional />} />
 
         <Route path="/" element={<SignInPage />} /> {/* Default route */}
+        <Route path="/" element={<WelcomePage />} />
+        <Route path="/signup" element={<SignUpPage />} />
+        <Route path="/OpenPositionsPage" element={<OpenPositionsPage />} />
+        <Route path="/NGOProfilePage" element={<NGOProfilePage/>} />
+        <Route path="/signup" element={<SignUpPage />} />
       </Routes>
     </Router>
   );
