@@ -1,0 +1,1 @@
+// page for seeing all the applications the professional applied for 
