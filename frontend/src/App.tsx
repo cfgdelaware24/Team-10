@@ -28,7 +28,7 @@ function App() {
         <Route path="/NGOProfilePage" element={<NGOProfilePage/>} />
         <Route path="/signup" element={<SignUpPage />} />
         <Route path="/ProfCreateProfilePage" element={<ProfCreateProfilePage />} />
-        <Route path="/profile" element={<ProfProfilePage />} />
+        <Route path="/ProfProfilePage" element={<ProfProfilePage />} />
         <Route path="/applications" element={<ApplicationsPage />} />
         <Route path="/editNGOProfile" element={<editNGOProfile />} />
       </Routes>
