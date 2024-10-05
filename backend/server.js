@@ -14,6 +14,30 @@ app.use(express.json());
 
 const PORT = process.env.PORT || 8000;
 
+connectDB();
+
+// Route to test searching for professionals matching a position
+app.get("/api/search-professionals/:positionID", async (req, res) => {
+    try {
+        const { positionID } = req.params;
+        const professionals = await search_for_professionals(positionID);
+        res.status(200).json(professionals);
+    } catch (error) {
+        res.status(500).json({ message: error.message });
+    }
+});
+
+// Route to test searching for positions matching a professional
+app.get("/api/search-positions/:professionalID", async (req, res) => {
+    try {
+        const { professionalID } = req.params;
+        const positions = await search_for_positions(professionalID);
+        res.status(200).json(positions);
+    } catch (error) {
+        res.status(500).json({ message: error.message });
+    }
+});
+
 app.get("/", (req, res) => {
     res.send("Server is working");
 });
