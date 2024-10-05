@@ -6,7 +6,7 @@ interface Position {
     skills: string;
 }
 
-const PositionsPage: React.FC = () => {
+const OpenPositionsPage: React.FC = () => {
     const [positions, setPositions] = useState<Position[]>([]);
     const [newPosition, setNewPosition] = useState<Position>({
         name: '',
@@ -44,8 +44,8 @@ const PositionsPage: React.FC = () => {
                     <ul>
                         {positions.map((position, index) => (
                             <li key={index} className="mb-4">
-                                <h2 className="text-lg font-semibold">{position.name}</h2>
-                                <p>{position.description}</p>
+                                <h2 className="text-lg font-semibold">Name: {position.name}</h2>
+                                <p>Description: {position.description}</p>
                                 <p className="text-sm text-gray-600">Skills: {position.skills}</p>
                             </li>
                         ))}
@@ -119,4 +119,4 @@ const PositionsPage: React.FC = () => {
     );
 };
 
-export default PositionsPage;
+export default OpenPositionsPage;

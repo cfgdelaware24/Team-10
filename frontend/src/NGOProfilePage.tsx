@@ -1,13 +1,12 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-const AddNGOProfilePage: React.FC = () => {
+const NGOProfilePage: React.FC = () => {
     const navigate = useNavigate();
     
     // State to store form input values
     const [formValues, setFormValues] = useState({
         name: '',
-        position: '',
         sector: '',
         location: '',
         mission: '',
@@ -38,12 +37,10 @@ const AddNGOProfilePage: React.FC = () => {
             <div className="bg-white bg-opacity-75 p-6 rounded-lg shadow-md w-3/4 md:w-1/2">
                 <h1 className="text-2xl font-bold mb-6 text-center">Add NGO Profile</h1>
                 
-<<<<<<< HEAD
                 {/* format for form to add profile */}
-=======
->>>>>>> frontend
                 <form onSubmit={handleSubmit} className="space-y-4">
                     <div>
+                        {/* add name field */}
                         <label className="block text-lg font-semibold">Name:</label>
                         <input
                             type="text"
@@ -56,20 +53,9 @@ const AddNGOProfilePage: React.FC = () => {
                         />
                     </div>
 
-                    <div>
-                        <label className="block text-lg font-semibold">Position:</label>
-                        <input
-                            type="text"
-                            name="position"
-                            value={formValues.position}
-                            onChange={handleInputChange}
-                            className="w-full px-4 py-2 border rounded"
-                            placeholder="Enter your position"
-                            required
-                        />
-                    </div>
 
                     <div>
+                        {/* add sector field */}
                         <label className="block text-lg font-semibold">Sector:</label>
                         <input
                             type="text"
@@ -83,6 +69,7 @@ const AddNGOProfilePage: React.FC = () => {
                     </div>
 
                     <div>
+                        {/* add location field */}
                         <label className="block text-lg font-semibold">Location:</label>
                         <input
                             type="text"
@@ -96,6 +83,7 @@ const AddNGOProfilePage: React.FC = () => {
                     </div>
 
                     <div>
+                        {/* add mission field */}
                         <label className="block text-lg font-semibold">Mission/Goal:</label>
                         <textarea
                             name="mission"
@@ -109,6 +97,7 @@ const AddNGOProfilePage: React.FC = () => {
                     </div>
 
                     <div className="text-center">
+                        {/* add button field */}
                         <button
                             type="submit"
                             className="px-6 py-2 bg-blue-500 text-white rounded"
@@ -122,4 +111,4 @@ const AddNGOProfilePage: React.FC = () => {
     );
 };
 
-export default AddNGOProfilePage;
+export default NGOProfilePage;
