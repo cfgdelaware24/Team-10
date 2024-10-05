@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
 
 const ProfProfilePage: React.FC = () => {
-    // Hardcoded sample data
+    // Updated hardcoded sample data
     const initialData = {
         name: 'John Doe',
-        location: 'New York, USA',
-        skills: 'React, JavaScript, CSS, HTML',
-        sector: 'Software Development',
-        profileImage: 'https://via.placeholder.com/150',
+        location: 'Wilmington, Delaware',
+        skills: 'Communication, Law Degree, Advocacy, Litigation',
+        sector: 'Homelessness',
+        profileImage: 'https://images.unsplash.com/photo-1507081323647-4d250478b919?q=80&w=1964&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
     };
 
     const [isEditing, setIsEditing] = useState(false);
