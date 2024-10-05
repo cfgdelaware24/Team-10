@@ -1,4 +1,8 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import SpurImpactLogo from './SpurImpactLogo.png'; // Adjust the path for image logo
+
+
 
 // Define the NGO type
 interface NGO {
@@ -8,6 +12,8 @@ interface NGO {
 }
 
 const FindNGOs: React.FC = () => {
+  const navigate = useNavigate();
+
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isFlipped, setIsFlipped] = useState(false);
 
@@ -63,6 +69,37 @@ const FindNGOs: React.FC = () => {
 
   return (
     <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100 p-4">
+      {/* Navigation bar */}
+      <div className="w-full bg-blue-500 p-4 flex justify-between items-center fixed top-0">
+                <div className="flex items-center">
+                    {/* Add logo image next to the title */}
+                    <img src={SpurImpactLogo} alt="Spur Impact Logo" className="h-10 mr-2" />
+                    <h1 className="text-white text-2xl font-bold">De-Impact</h1>
+                </div>
+
+                {/* Navigation buttons */}
+                <div className="space-x-4">
+                    {/* button to navigate to welcome page */}
+                        <button
+                        className="text-white bg-blue-700 px-4 py-2 rounded hover:bg-blue-600"
+                        onClick={() => navigate('/WelcomePage')}
+                    >
+                        Welcome Page
+                    </button>
+
+                    {/* button to navigate to edit profile for NGO */}
+                    <button
+                        className="text-white bg-blue-700 px-4 py-2 rounded hover:bg-blue-600"
+                        onClick={() => navigate('/ProfApplications')}
+                    >
+                        Edit Profile
+                    </button>
+
+
+
+
+                </div>
+            </div>
       <h1 className="text-4xl font-bold mb-8">Find NGOs</h1>
       <div className="w-full max-w-3xl bg-white shadow-xl rounded-xl overflow-hidden">
         <div className="flex items-center justify-between p-6">
