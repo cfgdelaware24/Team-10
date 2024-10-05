@@ -1,5 +1,5 @@
 import React from 'react';
-import linkedInLogo from './LinkedlnLogo.webp'; // Adjust the path to your LinkedIn logo
+import linkedInLogo from './LinkedInLogo.webp';
 import simplifyLogo from './SimplifyLogo.png'; // Adjust the path to your Simplify logo
 
 const SignUpPage: React.FC = () => {
