@@ -1,6 +1,10 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
+import SpurImpactLogo from './SpurImpactLogo.png'; 
 
 const ApplicationsPage: React.FC = () => {
+  const navigate = useNavigate();
+  
   // Sample data for applications submitted by the user
   const applications = [
     {
@@ -49,79 +53,102 @@ const ApplicationsPage: React.FC = () => {
   ];
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100 p-4">
-      <h1 className="text-3xl font-bold mb-8">Applications</h1>
-
-      {/* Section for User's Applications */}
-      <div className="w-full max-w-4xl bg-white shadow-md rounded-lg overflow-hidden mb-8">
-        <h2 className="bg-gray-200 text-xl font-semibold px-4 py-2">Submitted Applications</h2>
-        <div className="overflow-x-auto">
-          <table className="w-full table-auto">
-            <thead className="bg-gray-200">
-              <tr>
-                <th className="px-4 py-2 text-left">Name of NGO</th>
-                <th className="px-4 py-2 text-left">App Submitted</th>
-                <th className="px-4 py-2 text-left">Status</th>
-                <th className="px-4 py-2 text-left">Description of Position</th>
-              </tr>
-            </thead>
-            <tbody className="divide-y divide-gray-300">
-              {applications.map((app, index) => (
-                <tr key={index} className="hover:bg-gray-100">
-                  <td className="px-4 py-2">{app.ngoName}</td>
-                  <td className="px-4 py-2">{app.appSubmitted}</td>
-                  <td className="px-4 py-2">
-                    <span
-                      className={`inline-block px-2 py-1 rounded text-white ${
-                        app.status === 'Pending' ? 'bg-yellow-500' :
-                        app.status === 'Accepted' ? 'bg-green-500' :
-                        'bg-blue-500'
-                      }`}
-                    >
-                      {app.status}
-                    </span>
-                  </td>
-                  <td className="px-4 py-2">{app.description}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
+    <div className="relative flex flex-col items-center justify-center h-screen bg-gray-100">
+      {/* Navigation bar */}
+      <div className="w-full bg-blue-500 p-4 flex justify-between items-center fixed top-0">
+        <div className="flex items-center">
+          {/* Add logo image next to the title */}
+          <img src={SpurImpactLogo} alt="Spur Impact Logo" className="h-10 mr-2" />
+          <h1 className="text-white text-2xl font-bold">De-Impact</h1>
         </div>
       </div>
-
-      {/* Section for NGO Requests */}
-      <div className="w-full max-w-4xl bg-white shadow-md rounded-lg overflow-hidden">
-        <h2 className="bg-gray-200 text-xl font-semibold px-4 py-2">NGO Requests</h2>
-        <div className="overflow-x-auto">
-          <table className="w-full table-auto">
-            <thead className="bg-gray-200">
-              <tr>
-                <th className="px-4 py-2 text-left">Name of NGO</th>
-                <th className="px-4 py-2 text-left">Description of Position</th>
-                <th className="px-4 py-2 text-left">Application Submitted</th>
-              </tr>
-            </thead>
-            <tbody className="divide-y divide-gray-300">
-              {ngoRequests.map((request, index) => (
-                <tr key={index} className="hover:bg-gray-100">
-                  <td className="px-4 py-2">{request.ngoName}</td>
-                  <td className="px-4 py-2">{request.description}</td>
-                  <td className="px-4 py-2">
-                    {request.appSubmitted ? (
-                      <span className="inline-block px-2 py-1 rounded bg-green-500 text-white">
-                        Submitted
-                      </span>
-                    ) : (
-                      <span className="inline-block px-2 py-1 rounded bg-red-500 text-white">
-                        Not Yet
-                      </span>
-                    )}
-                  </td>
+      
+      {/* My Profile Button */}
+      <div className="absolute top-4 right-4">
+        <button
+          className="text-white bg-blue-700 px-4 py-2 rounded hover:bg-blue-600"
+          onClick={() => navigate('/ProfProfilePage')}
+        >
+          My Profile
+        </button>
+      </div>
+      
+      {/* Main Content */}
+      <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100 p-4">
+        <h1 className="text-3xl font-bold mb-8">Applications</h1>
+  
+        {/* Section for User's Applications */}
+        <div className="w-full max-w-4xl bg-white shadow-md rounded-lg overflow-hidden mb-8">
+          <h2 className="bg-gray-200 text-xl font-semibold px-4 py-2">Submitted Applications</h2>
+          <div className="overflow-x-auto">
+            <table className="w-full table-auto">
+              <thead className="bg-gray-200">
+                <tr>
+                  <th className="px-4 py-2 text-left">Name of NGO</th>
+                  <th className="px-4 py-2 text-left">App Submitted</th>
+                  <th className="px-4 py-2 text-left">Status</th>
+                  <th className="px-4 py-2 text-left">Description of Position</th>
                 </tr>
-              ))}
-            </tbody>
-          </table>
+              </thead>
+              <tbody className="divide-y divide-gray-300">
+                {applications.map((app, index) => (
+                  <tr key={index} className="hover:bg-gray-100">
+                    <td className="px-4 py-2">{app.ngoName}</td>
+                    <td className="px-4 py-2">{app.appSubmitted}</td>
+                    <td className="px-4 py-2">
+                      <span
+                        className={`inline-block px-2 py-1 rounded text-white ${
+                          app.status === 'Pending' ? 'bg-yellow-500' :
+                          app.status === 'Accepted' ? 'bg-green-500' :
+                          'bg-blue-500'
+                        }`}
+                      >
+                        {app.status}
+                      </span>
+                    </td>
+                    <td className="px-4 py-2">{app.description}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
         </div>
+
+        {/* Section for NGO Requests */}
+        <div className="w-full max-w-4xl bg-white shadow-md rounded-lg overflow-hidden">
+          <h2 className="bg-gray-200 text-xl font-semibold px-4 py-2">NGO Requests</h2>
+          <div className="overflow-x-auto">
+            <table className="w-full table-auto">
+              <thead className="bg-gray-200">
+                <tr>
+                  <th className="px-4 py-2 text-left">Name of NGO</th>
+                  <th className="px-4 py-2 text-left">Description of Position</th>
+                  <th className="px-4 py-2 text-left">Application Submitted</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-gray-300">
+                {ngoRequests.map((request, index) => (
+                  <tr key={index} className="hover:bg-gray-100">
+                    <td className="px-4 py-2">{request.ngoName}</td>
+                    <td className="px-4 py-2">{request.description}</td>
+                    <td className="px-4 py-2">
+                      {request.appSubmitted ? (
+                        <span className="inline-block px-2 py-1 rounded bg-green-500 text-white">
+                          Submitted
+                        </span>
+                      ) : (
+                        <span className="inline-block px-2 py-1 rounded bg-red-500 text-white">
+                          Not Yet
+                        </span>
+                      )}
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
+
       </div>
     </div>
   );
