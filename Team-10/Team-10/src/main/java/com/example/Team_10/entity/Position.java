@@ -1,4 +1,4 @@
 package com.example.Team_10.entity;
 
-public class Professionals {
+public class Position {
 }
