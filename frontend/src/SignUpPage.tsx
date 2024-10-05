@@ -1,6 +1,6 @@
 import React from 'react';
-import linkedInLogo from './LinkedInLogo.webp';
-import simplifyLogo from './SimplifyLogo.png'; // Adjust the path to your Simplify logo
+import linkedInLogo from './assets/LinkedlnLogo.webp'; // Adjust the path to your LinkedIn logo
+import simplifyLogo from './assets/SimplifyLogo.png'; // Adjust the path to your Simplify logo
 
 const SignUpPage: React.FC = () => {
     return (
@@ -33,16 +33,16 @@ const SignUpPage: React.FC = () => {
             <div className="flex flex-col items-center space-y-4 mt-6">
                 <button className="flex items-center px-4 py-2 bg-gray-600 text-white rounded transition duration-200 hover:bg-gray-700 w-72">
                     Sign in with LinkedIn
-                    <img src={linkedInLogo} alt="LinkedIn" className="h-5 w-5 mr-2" />
+                    <img src={linkedInLogo} alt="LinkedIn" className="h-5 w-5 ml-2" />
                 </button>
                 <button className="flex items-center px-4 py-2 bg-gray-600 text-white rounded transition duration-200 hover:bg-gray-700 w-72">
                     Sign in with Simplify
-                    <img src={simplifyLogo} alt="Simplify" className="h-5 w-5 mr-2" />
+                    <img src={simplifyLogo} alt="Simplify" className="h-5 w-5 ml-2" />
                 </button>
                 <p className="mt-4 text-sm">
                     Already have an account?{' '}
                     <button className="text-green-500 hover:underline">
-                        <p>Log in</p>
+                        Log in
                     </button>
                 </p>
             </div>
