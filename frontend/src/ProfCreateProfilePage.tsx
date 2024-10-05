@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-const ProfessionalProfilePage: React.FC = () => {
+const ProfCreateProfilePage: React.FC = () => {
     const navigate = useNavigate();
     
     // State to store form input values
@@ -25,12 +25,10 @@ const ProfessionalProfilePage: React.FC = () => {
     // Handle form submission
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
-        // You can handle the form submission logic here (e.g., send data to the backend)
-        console.log('Form submitted:', formValues);
-        // Redirect to open positions page
-        navigate('/openPositions');
+        // Navigate to the profile page and pass the form values
+        navigate('/profile', { state: formValues });
     };
-
+    
     return (
         <div
             className="flex flex-col items-center justify-center h-screen bg-gray-100"
@@ -118,4 +116,4 @@ const ProfessionalProfilePage: React.FC = () => {
     );
 };
 
-export default ProfessionalProfilePage;
+export default ProfCreateProfilePage;

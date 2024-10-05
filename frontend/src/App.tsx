@@ -4,7 +4,8 @@ import SignUpPage from './SignUpPage';
 import NGOProfilePage from './NGOProfilePage';
 
 import './App.css';
-import ProfessionalProfilePage from './ProfessionalProfilePage';
+import ProfCreateProfilePage from './ProfCreateProfilePage';
+import ProfProfilePage from './ProfProfilePage';
 
 function App() {
   return (
@@ -13,7 +14,9 @@ function App() {
         <Route path="/" element={<WelcomePage />} />
         {/*   {/* <Route path="/signup" element={<SignUpPage />} /> */} 
           <Route path="/NGOProfilePage" element={<NGOProfilePage />} />
-          <Route path="/ProfessionalProfilePage" element={<ProfessionalProfilePage />} />
+          <Route path="/ProfCreateProfilePage" element={<ProfCreateProfilePage />} />
+          <Route path="/profile" element={<ProfProfilePage />} />
+
       </Routes>
     </Router>
   );
