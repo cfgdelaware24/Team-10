@@ -58,7 +58,7 @@ const ProfCreateProfilePage: React.FC = () => {
                         className="text-white bg-blue-700 px-4 py-2 rounded hover:bg-blue-600"
                         onClick={() => navigate('/ProfProfilePage')}
                     >
-                        Edit Profile
+                        My Profile
                     </button>
 
 
