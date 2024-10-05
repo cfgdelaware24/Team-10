@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
-export default function RegistrationPage() {
+export default function RegistrationPageProfessional() {
   const [formData, setFormData] = useState({
     firstName: '',
     lastName: '',
@@ -34,7 +34,7 @@ export default function RegistrationPage() {
             className="mx-auto h-100 w-auto"
           />
           <h2 className="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">
-            Register your account
+            Register Your Professional Account
           </h2>
         </div>
 

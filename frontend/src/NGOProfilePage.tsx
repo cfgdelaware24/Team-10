@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import SpurImpactLogo from './SpurImpactLogo.png'; // Adjust the path for image logo
 
 const NGOProfilePage: React.FC = () => {
     const navigate = useNavigate();
@@ -29,16 +30,33 @@ const NGOProfilePage: React.FC = () => {
     };
 
     return (
-        <div
-            className="flex flex-col items-center justify-center h-screen bg-gray-100"
-        >
-            <div className="bg-white bg-opacity-75 p-6 rounded-lg shadow-md w-3/4 md:w-1/2">
+        <div className="flex flex-col items-center justify-center h-screen bg-gray-100">
+            
+            {/* Navigation bar at the top */}
+            <div className="w-full bg-blue-500 p-4 flex justify-between items-center fixed top-0">
+                <div className="flex items-center">
+                    {/* Add logo image next to the title */}
+                    <img src={SpurImpactLogo} alt="Spur Impact Logo" className="h-10 mr-2" />
+                    <h1 className="text-white text-2xl font-bold">De-Impact</h1>
+                </div>
+
+                {/* button to navigate to welcome page */}
+                <button
+                    className="text-white bg-blue-700 px-4 py-2 rounded hover:bg-blue-600"
+                    onClick={() => navigate('/WelcomePage')}
+                >
+                    Welcome Page
+                </button>
+            </div>
+            
+            {/* Adjust the layout to leave space for the nav bar */}
+            <div className="mt-20 bg-white bg-opacity-75 p-6 rounded-lg shadow-md w-3/4 md:w-1/2">
                 <h1 className="text-2xl font-bold mb-6 text-center">Add NGO Profile</h1>
                 
-                {/* format for form to add profile */}
+                {/* Form to add NGO profile */}
                 <form onSubmit={handleSubmit} className="space-y-4">
                     <div>
-                        {/* add name field */}
+                        {/* Input field for name */}
                         <label className="block text-lg font-semibold">Name:</label>
                         <input
                             type="text"
@@ -51,9 +69,8 @@ const NGOProfilePage: React.FC = () => {
                         />
                     </div>
 
-
                     <div>
-                        {/* add sector field */}
+                        {/* Input field for sector */}
                         <label className="block text-lg font-semibold">Sector:</label>
                         <input
                             type="text"
@@ -67,7 +84,7 @@ const NGOProfilePage: React.FC = () => {
                     </div>
 
                     <div>
-                        {/* add location field */}
+                        {/* Input field for location */}
                         <label className="block text-lg font-semibold">Location:</label>
                         <input
                             type="text"
@@ -81,7 +98,7 @@ const NGOProfilePage: React.FC = () => {
                     </div>
 
                     <div>
-                        {/* add mission field */}
+                        {/* Textarea for mission/goal */}
                         <label className="block text-lg font-semibold">Mission/Goal:</label>
                         <textarea
                             name="mission"
@@ -94,8 +111,8 @@ const NGOProfilePage: React.FC = () => {
                         />
                     </div>
 
+                    {/* Submit button */}
                     <div className="text-center">
-                        {/* add button field */}
                         <button
                             type="submit"
                             className="px-6 py-2 bg-blue-500 text-white rounded"

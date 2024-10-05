@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import SpurImpactLogo from './SpurImpactLogo.png'; // Adjust the path for image logo
+
 
 const ProfCreateProfilePage: React.FC = () => {
     const navigate = useNavigate();
@@ -33,6 +35,35 @@ const ProfCreateProfilePage: React.FC = () => {
         <div
             className="flex flex-col items-center justify-center h-screen bg-gray-100"
         >
+            {/* Navigation bar */}
+            <div className="w-full bg-blue-500 p-4 flex justify-between items-center fixed top-0">
+                <div className="flex items-center">
+                    {/* Add logo image next to the title */}
+                    <img src={SpurImpactLogo} alt="Spur Impact Logo" className="h-10 mr-2" />
+                    <h1 className="text-white text-2xl font-bold">De-Impact</h1>
+                </div>
+
+                {/* Navigation buttons */}
+                <div className="space-x-4">
+                    {/* button to navigate to welcome page */}
+                        <button
+                        className="text-white bg-blue-700 px-4 py-2 rounded hover:bg-blue-600"
+                        onClick={() => navigate('/WelcomePage')}
+                    >
+                        Welcome Page
+                    </button>
+
+                    {/* button to navigate to edit profile for NGO */}
+                    <button
+                        className="text-white bg-blue-700 px-4 py-2 rounded hover:bg-blue-600"
+                        onClick={() => navigate('/ProfProfilePage')}
+                    >
+                        My Profile
+                    </button>
+
+
+                </div>
+            </div>
             <div className="bg-white bg-opacity-75 p-6 rounded-lg shadow-md w-3/4 md:w-1/2">
                 <h1 className="text-2xl font-bold mb-6 text-center">Professional Profile</h1>
                 
