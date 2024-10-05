@@ -6,6 +6,8 @@ import NGOProfilePage from './NGOProfilePage';
 import './App.css';
 import ProfCreateProfilePage from './ProfCreateProfilePage';
 import ProfProfilePage from './ProfProfilePage';
+import ApplicationsPage from './ApplicationsPage';
+
 
 function App() {
   return (
@@ -16,6 +18,7 @@ function App() {
           <Route path="/NGOProfilePage" element={<NGOProfilePage />} />
           <Route path="/ProfCreateProfilePage" element={<ProfCreateProfilePage />} />
           <Route path="/profile" element={<ProfProfilePage />} />
+          <Route path="/applications" element={<ApplicationsPage />} />
 
       </Routes>
     </Router>
