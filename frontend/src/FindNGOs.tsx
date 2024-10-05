@@ -30,12 +30,10 @@ const FindNGOs: React.FC = () => {
     },
   ];
 
-  // Function to handle the 'Top' action (e.g., when an NGO is "upvoted" or favorited)
   const handleTop = (ngo: NGO) => {
     alert(`You favorited ${ngo.name}`);
   };
 
-  // Function to handle the 'Right' action (e.g., next NGO)
   const handleRight = (ngo: NGO) => {
     console.log(`You navigated to ${ngo.name}`);
   };
@@ -64,46 +62,47 @@ const FindNGOs: React.FC = () => {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100">
-      <h1 className="text-3xl font-bold mb-6">Find NGOs</h1>
-      <div className="relative flex items-center justify-center space-x-4">
-        <button 
-          className="text-2xl text-gray-700 hover:text-gray-900 disabled:text-gray-400" 
-          onClick={handlePrevious} 
-          disabled={currentIndex === 0}
-        >
-          &lt;
-        </button>
-        <div
-          className={`relative w-64 h-96 bg-white shadow-lg rounded-lg cursor-pointer transform transition-transform duration-500 ${isFlipped ? 'rotate-y-180' : ''}`}
-          onClick={handleFlip}
-        >
-          {/* Card Front */}
-          <div className={`absolute inset-0 backface-hidden p-4 ${isFlipped ? 'hidden' : ''}`}>
-            <h3 className="text-xl font-semibold mb-2">{ngosData[currentIndex].name}</h3>
-            <p className="text-gray-600">{ngosData[currentIndex].description}</p>
+    <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100 p-4">
+      <h1 className="text-4xl font-bold mb-8">Find NGOs</h1>
+      <div className="w-full max-w-3xl bg-white shadow-xl rounded-xl overflow-hidden">
+        <div className="flex items-center justify-between p-6">
+          <button
+            className="text-3xl text-gray-700 hover:text-gray-900 disabled:text-gray-400"
+            onClick={handlePrevious}
+            disabled={currentIndex === 0}
+          >
+            &lt;
+          </button>
+          <div 
+            className="flex-grow mx-4 cursor-pointer"
+            onClick={handleFlip}
+          >
+            <div className={`${isFlipped ? 'hidden' : ''}`}>
+              <h3 className="text-2xl font-semibold mb-2">{ngosData[currentIndex].name}</h3>
+              <p className="text-lg text-gray-600">{ngosData[currentIndex].description}</p>
+            </div>
+            <div className={`${isFlipped ? '' : 'hidden'}`}>
+              <h3 className="text-2xl font-semibold mb-2">Details</h3>
+              <p className="text-lg text-gray-600">{ngosData[currentIndex].details}</p>
+            </div>
           </div>
-          
-          {/* Card Back */}
-          <div className={`absolute inset-0 backface-hidden p-4 transform rotate-y-180 ${isFlipped ? '' : 'hidden'}`}>
-            <h3 className="text-xl font-semibold mb-2">Details</h3>
-            <p className="text-gray-600">{ngosData[currentIndex].details}</p>
-          </div>
+          <button
+            className="text-3xl text-gray-700 hover:text-gray-900 disabled:text-gray-400"
+            onClick={handleNext}
+            disabled={currentIndex === ngosData.length - 1}
+          >
+            &gt;
+          </button>
         </div>
-        <button 
-          className="text-2xl text-gray-700 hover:text-gray-900 disabled:text-gray-400" 
-          onClick={handleNext} 
-          disabled={currentIndex === ngosData.length - 1}
-        >
-          &gt;
-        </button>
+        <div className="border-t border-gray-200 p-4 text-center">
+          <button
+            className="px-6 py-2 bg-blue-500 text-white text-lg rounded-lg hover:bg-blue-600 transition-colors"
+            onClick={handleFavorite}
+          >
+            Favorite
+          </button>
+        </div>
       </div>
-      <button 
-        className="mt-4 px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600" 
-        onClick={handleFavorite}
-      >
-        Favorite
-      </button>
     </div>
   );
 };
