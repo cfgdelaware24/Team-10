@@ -1,6 +1,11 @@
 import React, { useState } from 'react';
+import { useNavigate, useLocation } from 'react-router-dom';
+import SpurImpactLogo from './SpurImpactLogo.png'; // Adjust the path for image logo
 
 const ProfProfilePage: React.FC = () => {
+    const navigate = useNavigate();
+    const location = useLocation(); // To determine the current route
+
     // Updated hardcoded sample data
     const initialData = {
         name: 'John Doe',
@@ -32,13 +37,68 @@ const ProfProfilePage: React.FC = () => {
 
     const handleSave = () => {
         setIsEditing(false);
-        // Handle save logic here, e.g., sending the updated values to the backend
         console.log('Updated Profile:', formValues);
     };
 
+    // Function to determine if the given path matches the current location
+    const isActive = (path: string) => location.pathname === path;
+
     return (
-        <div className="flex flex-col items-center justify-center h-screen bg-gray-100">
-            <div className="bg-white bg-opacity-75 p-6 rounded-lg shadow-md w-3/4 md:w-1/2">
+        <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100">
+            {/* Navigation bar */}
+            <div className="w-full bg-blue-500 p-4 flex justify-between items-center fixed top-0">
+                <div className="flex items-center">
+                    {/* Add logo image next to the title */}
+                    <img src={SpurImpactLogo} alt="Spur Impact Logo" className="h-10 mr-2" />
+                    <h1 className="text-white text-2xl font-bold">De-Impact</h1>
+                </div>
+
+                {/* Navigation buttons */}
+                <div className="space-x-4">
+                    {/* Button to navigate to welcome page */}
+                    <button
+                        className={`px-4 py-2 rounded hover:bg-blue-600 ${
+                            isActive('/WelcomePage') ? 'bg-blue-800 text-white' : 'bg-blue-700 text-white'
+                        }`}
+                        onClick={() => navigate('/WelcomePage')}
+                    >
+                        Welcome Page
+                    </button>
+
+                    {/* Button to navigate to profile page */}
+                    <button
+                        className={`px-4 py-2 rounded hover:bg-blue-600 ${
+                            isActive('/ProfProfilePage') ? 'bg-blue-800 text-white' : 'bg-blue-700 text-white'
+                        }`}
+                        onClick={() => navigate('/ProfProfilePage')}
+                    >
+                        My Profile
+                    </button>
+
+                    {/* Button to navigate to applications page */}
+                    <button
+                        className={`px-4 py-2 rounded hover:bg-blue-600 ${
+                            isActive('/applications') ? 'bg-blue-800 text-white' : 'bg-blue-700 text-white'
+                        }`}
+                        onClick={() => navigate('/applications')}
+                    >
+                        My Applications
+                    </button>
+
+                    {/* Button to navigate to Find NGOs */}
+                    <button
+                        className={`px-4 py-2 rounded hover:bg-blue-600 ${
+                            isActive('/FindNGOs') ? 'bg-blue-800 text-white' : 'bg-blue-700 text-white'
+                        }`}
+                        onClick={() => navigate('/FindNGOs')}
+                    >
+                        Find NGOs
+                    </button>
+                </div>
+            </div>
+
+            {/* Adjust the layout to leave space for the nav bar */}
+            <div className="mt-20 bg-white bg-opacity-75 p-6 rounded-lg shadow-md w-3/4 md:w-1/2">
                 <div className="flex flex-col items-center">
                     {/* Hardcoded Profile Image */}
                     <img src={initialData.profileImage} alt="Profile Logo" className="w-32 h-32 mb-4" />
@@ -99,13 +159,29 @@ const ProfProfilePage: React.FC = () => {
                             <p className="text-lg mb-2"><strong>Location:</strong> {formValues.location}</p>
                             <p className="text-lg mb-2"><strong>Skills:</strong> {formValues.skills}</p>
                             <p className="text-lg mb-2"><strong>Sector:</strong> {formValues.sector}</p>
-                            <button
-                                type="button"
-                                onClick={toggleEdit}
-                                className="mt-4 px-6 py-2 bg-blue-500 text-white rounded"
-                            >
-                                Edit
-                            </button>
+                            <div className="mt-4 flex space-x-4">
+                                <button
+                                    type="button"
+                                    onClick={() => navigate('/applications')}
+                                    className="mt-4 px-6 py-2 bg-blue-500 text-white rounded"
+                                >
+                                My Applications
+                                </button>
+                                <button
+                                    type="button"
+                                    onClick={toggleEdit}
+                                    className="mt-4 px-6 py-2 bg-blue-500 text-white rounded"
+                                >
+                                    Edit Profile
+                                </button>
+                                <button
+                                    type="button"
+                                    onClick={() => navigate('/FindNGOs')}
+                                    className="mt-4 px-6 py-2 bg-blue-500 text-white rounded"
+                                >
+                                    Find NGOs
+                                </button>   
+                            </div>
                         </>
                     )}
                 </div>
