@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 import React from 'react';
 import linkedInLogo from './LinkedlnLogo.webp'; // Adjust the path to your LinkedIn logo
 import simplifyLogo from './SimplifyLogo.png'; // Adjust the path to your Simplify logo
@@ -44,6 +45,49 @@ const SignUpPage: React.FC = () => {
                     <button className="text-green-500 hover:underline">
                         <p>Log in</p>
                     </button>
+=======
+import React from "react";
+import './SignUpPage.css';  // Import the custom CSS
+
+const SignUpPage: React.FC = () => {
+    return (
+        <div className="sign-up-container">
+            {/* Main Container */}
+            <div className="sign-up-box">
+                {/* Title */}
+                <h1 className="title">Welcome to De-Impact</h1>
+                <p className="subtitle">Please sign up or log in to continue</p>
+
+                {/* Sign-up Form */}
+                <form className="sign-up-form">
+                    <input type="text" placeholder="Name" className="input" required />
+                    <input type="email" placeholder="Email" className="input" required />
+                    <input type="password" placeholder="Password" className="input" required />
+                    <button type="submit" className="submit-button">Sign Up</button>
+                </form>
+
+                {/* Divider */}
+                <div className="divider">
+                    <hr />
+                    <span className="divider-text">or</span>
+                </div>
+
+                {/* Sign-in Options */}
+                <div className="social-signin">
+                    <button className="social-button">
+                        <img src="/assets/google-logo.png" alt="Google" className="social-icon" />
+                        <span>Sign in with Google</span>
+                    </button>
+                    <button className="social-button">
+                        <img src="/assets/facebook-logo.jpg" alt="Facebook" className="social-icon" />
+                        <span>Sign in with Facebook</span>
+                    </button>
+                </div>
+
+                {/* Already have an account */}
+                <p className="login-text">
+                    Already have an account? <a href="/login" className="login-link">Log in</a>
+>>>>>>> Stashed changes
                 </p>
             </div>
         </div>
