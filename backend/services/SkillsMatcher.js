@@ -52,10 +52,10 @@ async function search_for_positions(professionalID) {
 
         // Loop through each position and match it to the professional
         for (let i = 0; i < positions.length; i++) {
-            if (match_professional_to_position(person, positions[i])) {
-                res.push(positions[i]);
-            }
+            const countOccurrences = (arr1, arr2) => arr1.filter(item => arr2.includes(item)).length;
+            res.append([positions[i], countOccurrences(person.skills, positions[i].skills)])
         }
+        return res.sort((a, b) => b[1] - a[1])
 
         // Return the array of matching positions
         return res;
