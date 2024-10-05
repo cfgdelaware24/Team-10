@@ -1,15 +1,16 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-const NGOProfilePage: React.FC = () => {
+const ProfCreateProfilePage: React.FC = () => {
     const navigate = useNavigate();
     
     // State to store form input values
     const [formValues, setFormValues] = useState({
         name: '',
+        email: '',
         sector: '',
         location: '',
-        mission: '',
+        skills: '',
     });
 
     // Handle input change
@@ -24,21 +25,19 @@ const NGOProfilePage: React.FC = () => {
     // Handle form submission
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
-        // Redirect to open positions page
-        navigate('/openPositionsPage');
+        // Navigate to the profile page and pass the form values
+        navigate('/profile', { state: formValues });
     };
-
+    
     return (
         <div
             className="flex flex-col items-center justify-center h-screen bg-gray-100"
         >
             <div className="bg-white bg-opacity-75 p-6 rounded-lg shadow-md w-3/4 md:w-1/2">
-                <h1 className="text-2xl font-bold mb-6 text-center">Add NGO Profile</h1>
+                <h1 className="text-2xl font-bold mb-6 text-center">Professional Profile</h1>
                 
-                {/* format for form to add profile */}
                 <form onSubmit={handleSubmit} className="space-y-4">
                     <div>
-                        {/* add name field */}
                         <label className="block text-lg font-semibold">Name:</label>
                         <input
                             type="text"
@@ -51,9 +50,20 @@ const NGOProfilePage: React.FC = () => {
                         />
                     </div>
 
+                    <div>
+                        <label className="block text-lg font-semibold">Email:</label>
+                        <input
+                            type="text"
+                            name="email"
+                            value={formValues.email}
+                            onChange={handleInputChange}
+                            className="w-full px-4 py-2 border rounded"
+                            placeholder="Enter your email"
+                            required
+                        />
+                    </div>
 
                     <div>
-                        {/* add sector field */}
                         <label className="block text-lg font-semibold">Sector:</label>
                         <input
                             type="text"
@@ -61,41 +71,38 @@ const NGOProfilePage: React.FC = () => {
                             value={formValues.sector}
                             onChange={handleInputChange}
                             className="w-full px-4 py-2 border rounded"
-                            placeholder="Enter your sector"
+                            placeholder="Enter the sector you're interested in"
                             required
                         />
                     </div>
 
                     <div>
-                        {/* add location field */}
-                        <label className="block text-lg font-semibold">Location:</label>
+                        <label className="block text-lg font-semibold"> Location:</label>
                         <input
                             type="text"
                             name="location"
                             value={formValues.location}
                             onChange={handleInputChange}
                             className="w-full px-4 py-2 border rounded"
-                            placeholder="Enter your location"
+                            placeholder="Enter your preferred location"
                             required
                         />
                     </div>
 
                     <div>
-                        {/* add mission field */}
-                        <label className="block text-lg font-semibold">Mission/Goal:</label>
+                        <label className="block text-lg font-semibold">Skills:</label>
                         <textarea
-                            name="mission"
-                            value={formValues.mission}
+                            name="skills"
+                            value={formValues.skills}
                             onChange={handleInputChange}
                             className="w-full px-4 py-2 border rounded"
-                            placeholder="Enter your mission or goal"
+                            placeholder="List your skills here"
                             rows={3}
                             required
                         />
                     </div>
 
                     <div className="text-center">
-                        {/* add button field */}
                         <button
                             type="submit"
                             className="px-6 py-2 bg-blue-500 text-white rounded"
@@ -109,4 +116,4 @@ const NGOProfilePage: React.FC = () => {
     );
 };
 
-export default NGOProfilePage;
+export default ProfCreateProfilePage;
