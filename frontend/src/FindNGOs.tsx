@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import axios from 'axios'; // Import axios for API requests
 import SpurImpactLogo from './SpurImpactLogo.png'; // Adjust the path for image logo
 
@@ -8,12 +8,13 @@ interface NGO {
   name: string;
   description: string;
   details: string;
-  positionId: number; // Add positionId to match the API requirements
-  professionalId: number; // Add professionalId to match the API requirements
+  positionId: number;
+  professionalId: number;
 }
 
 const FindNGOs: React.FC = () => {
   const navigate = useNavigate();
+  const location = useLocation(); // To determine the current route
 
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isFlipped, setIsFlipped] = useState(false);
@@ -24,22 +25,22 @@ const FindNGOs: React.FC = () => {
       name: 'Helping Hands',
       description: 'An NGO focused on homelessness relief.',
       details: 'Based in Wilmington, Delaware. Established in 2010. Focus areas include advocacy and providing shelter.',
-      positionId: 1, // Sample positionId
-      professionalId: 101, // Sample professionalId
+      positionId: 1,
+      professionalId: 101,
     },
     {
       name: 'Green Earth Initiative',
       description: 'Focused on environmental protection.',
       details: 'Operating globally since 2005. Works on reforestation and climate change awareness.',
-      positionId: 2, // Sample positionId
-      professionalId: 102, // Sample professionalId
+      positionId: 2,
+      professionalId: 102,
     },
     {
       name: 'Teach for Change',
       description: 'Dedicated to providing education to underserved communities.',
       details: 'Established in 2015, focusing on rural areas with limited access to quality education.',
-      positionId: 3, // Sample positionId
-      professionalId: 103, // Sample professionalId
+      positionId: 3,
+      professionalId: 103,
     },
   ];
 
@@ -49,7 +50,7 @@ const FindNGOs: React.FC = () => {
 
   const handleLikePosition = async (positionId: number, professionalId: number) => {
     try {
-      await axios.post(`/positions/${positionId}/like/${professionalId}`);
+      await axios.post(`http://your-api-base-url/positions/${positionId}/like/${professionalId}`);
       console.log(`Liked position ${positionId} by professional ${professionalId}`);
     } catch (error) {
       console.error('Error liking position:', error);
@@ -84,6 +85,9 @@ const FindNGOs: React.FC = () => {
     handleTop(ngosData[currentIndex]);
   };
 
+  // Function to determine if the given path matches the current location
+  const isActive = (path: string) => location.pathname === path;
+
   return (
     <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100 p-4">
       {/* Navigation bar */}
@@ -98,22 +102,27 @@ const FindNGOs: React.FC = () => {
         <div className="space-x-4">
           {/* Button to navigate to welcome page */}
           <button
-            className="text-white bg-blue-700 px-4 py-2 rounded hover:bg-blue-600"
+            className={`px-4 py-2 rounded hover:bg-blue-600 ${
+              isActive('/WelcomePage') ? 'bg-blue-800 text-white' : 'bg-blue-700 text-white'
+            }`}
             onClick={() => navigate('/WelcomePage')}
           >
             Welcome Page
           </button>
 
-          {/* Button to navigate to edit profile for NGO */}
+          {/* Button to navigate to profile page */}
           <button
-            className="text-white bg-blue-700 px-4 py-2 rounded hover:bg-blue-600"
-            onClick={() => navigate('/ProfApplications')}
+            className={`px-4 py-2 rounded hover:bg-blue-600 ${
+              isActive('/ProfProfilePage') ? 'bg-blue-800 text-white' : 'bg-blue-700 text-white'
+            }`}
+            onClick={() => navigate('/ProfProfilePage')}
           >
-            Edit Profile
+            My Profile
           </button>
         </div>
       </div>
-      <h1 className="text-4xl font-bold mb-8">Find NGOs</h1>
+
+      <h1 className="text-4xl font-bold mb-8 mt-20">Find NGOs</h1>
       <div className="w-full max-w-3xl bg-white shadow-xl rounded-xl overflow-hidden">
         <div className="flex items-center justify-between p-6">
           <button
@@ -123,10 +132,7 @@ const FindNGOs: React.FC = () => {
           >
             &lt;
           </button>
-          <div 
-            className="flex-grow mx-4 cursor-pointer"
-            onClick={handleFlip}
-          >
+          <div className="flex-grow mx-4 cursor-pointer" onClick={handleFlip}>
             <div className={`${isFlipped ? 'hidden' : ''}`}>
               <h3 className="text-2xl font-semibold mb-2">{ngosData[currentIndex].name}</h3>
               <p className="text-lg text-gray-600">{ngosData[currentIndex].description}</p>
