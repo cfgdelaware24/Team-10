@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+
 
 interface Position {
     name: string;
@@ -7,6 +9,7 @@ interface Position {
 }
 
 const OpenPositionsPage: React.FC = () => {
+    const navigate = useNavigate();
     const [positions, setPositions] = useState<Position[]>([]);
     const [newPosition, setNewPosition] = useState<Position>({
         name: '',
@@ -34,6 +37,12 @@ const OpenPositionsPage: React.FC = () => {
         setNewPosition({ name: '', description: '', skills: '' }); // Reset form
     };
 
+    // Handle form submission
+    const viewApplication = (e: React.FormEvent) => {
+        e.preventDefault();
+        // Redirect to applications page for position
+        navigate('/NGOApplication');
+    };
     return (
         <div className="min-h-screen flex flex-col items-center bg-gray-100 p-6">
             <h1 className="text-2xl font-bold mb-6">Open Positions</h1>
@@ -49,6 +58,10 @@ const OpenPositionsPage: React.FC = () => {
                                 <p className="text-sm text-gray-600">Skills: {position.skills}</p>
                             </li>
                         ))}
+                        {/* Button to view applications for that position */}
+                        <button type="submit" onClick = {viewApplication} className="bg-green-500 text-white px-6 py-2 rounded shadow-lg">
+                    View Applications
+                </button>
                     </ul>
                 ) : (
                     <p>No positions available.</p>
