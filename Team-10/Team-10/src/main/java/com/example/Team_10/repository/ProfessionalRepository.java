@@ -6,4 +6,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface ProfessionalRepository extends JpaRepository<Professional, Integer> {
+    Professional findByEmailAndPassword(String email, String password);
 }
