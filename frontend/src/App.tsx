@@ -5,7 +5,7 @@ import NGOProfilePage from './NGOProfilePage';
 import ApplicationsPage from './ApplicationsPage';
 import ProfCreateProfilePage from './ProfCreateProfilePage';
 import ProfProfilePage from './ProfProfilePage';
-import editNGOProfile from './editNGOProfile';
+// import editNGOProfile from './editNGOProfile';
 import FindNGOs from './FindNGOs';
 import './App.css';
 
