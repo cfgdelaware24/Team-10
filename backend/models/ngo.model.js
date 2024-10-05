@@ -11,18 +11,22 @@ const ngoSchema = mongoose.Schema({
         type: [String],
         required: true,
     },
+    county: {
+        type: [String],
+        required: true,
+    },
     location: {
-        type: String,
+        type: [String],
         required: true,
     },
     mission: {
         type: String,
         required: true,
     },
-    openPositions: {
-        type: [Position.schema], // Use the Position schema
-        required: true,
-    },
+    // openPositions: {
+    //     type: [Position.schema], // Use the Position schema
+    //     required: true,
+    // },
 });
 
 // Export the NGO model

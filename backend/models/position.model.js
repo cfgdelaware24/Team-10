@@ -14,6 +14,10 @@ const positionSchema = mongoose.Schema({
         type: [String],
         required: true,
     },
+    ngoID: {
+        type: String,
+        required: true,
+    }
 });
 
 const Position = mongoose.model("Position", positionSchema);
