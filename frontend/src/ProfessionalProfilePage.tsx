@@ -66,27 +66,27 @@ const ProfessionalProfilePage: React.FC = () => {
                     </div>
 
                     <div>
-                        <label className="block text-lg font-semibold">Sector You're Interested In:</label>
+                        <label className="block text-lg font-semibold">Sector:</label>
                         <input
                             type="text"
                             name="sector"
                             value={formValues.sector}
                             onChange={handleInputChange}
                             className="w-full px-4 py-2 border rounded"
-                            placeholder="Enter your sector"
+                            placeholder="Enter the sector you're interested in"
                             required
                         />
                     </div>
 
                     <div>
-                        <label className="block text-lg font-semibold">Preferred Location:</label>
+                        <label className="block text-lg font-semibold"> Location:</label>
                         <input
                             type="text"
                             name="location"
                             value={formValues.location}
                             onChange={handleInputChange}
                             className="w-full px-4 py-2 border rounded"
-                            placeholder="Enter your location"
+                            placeholder="Enter your preferred location"
                             required
                         />
                     </div>
@@ -98,7 +98,7 @@ const ProfessionalProfilePage: React.FC = () => {
                             value={formValues.skills}
                             onChange={handleInputChange}
                             className="w-full px-4 py-2 border rounded"
-                            placeholder="Enter your mission or goal"
+                            placeholder="List your skills here"
                             rows={3}
                             required
                         />
