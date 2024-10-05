@@ -6,6 +6,7 @@ import ApplicationsPage from './ApplicationsPage';
 import ProfCreateProfilePage from './ProfCreateProfilePage';
 import ProfProfilePage from './ProfProfilePage';
 import editNGOProfile from './editNGOProfile';
+import FindNGOs from './FindNGOs';
 import './App.css';
 
 import RegistrationPageNGO from './pages/RegistrationPageNGO';
@@ -30,7 +31,8 @@ function App() {
         <Route path="/ProfCreateProfilePage" element={<ProfCreateProfilePage />} />
         <Route path="/ProfProfilePage" element={<ProfProfilePage />} />
         <Route path="/applications" element={<ApplicationsPage />} />
-        <Route path="/editNGOProfile" element={<editNGOProfile />} />
+        {/* <Route path="/editNGOProfile" element={<editNGOProfile />} /> */}
+        <Route path="/FindNGOs" element={<FindNGOs />} />
       </Routes>
     </Router>
   );

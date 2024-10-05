@@ -70,6 +70,8 @@ const ProfProfilePage: React.FC = () => {
                     </button>
 
 
+
+
                 </div>
             </div>
             <div className="bg-white bg-opacity-75 p-6 rounded-lg shadow-md w-3/4 md:w-1/2">
@@ -133,13 +135,29 @@ const ProfProfilePage: React.FC = () => {
                             <p className="text-lg mb-2"><strong>Location:</strong> {formValues.location}</p>
                             <p className="text-lg mb-2"><strong>Skills:</strong> {formValues.skills}</p>
                             <p className="text-lg mb-2"><strong>Sector:</strong> {formValues.sector}</p>
+                            <div className="mt-4 flex space-x-4">
+                            <button
+                                type="button"
+                                onClick={() => navigate('/applications')}
+                                className="mt-4 px-6 py-2 bg-blue-500 text-white rounded"
+                            >
+                                My Applications
+                            </button>
                             <button
                                 type="button"
                                 onClick={toggleEdit}
                                 className="mt-4 px-6 py-2 bg-blue-500 text-white rounded"
                             >
-                                Edit
+                                Edit Profile
                             </button>
+                            <button
+                                type="button"
+                                onClick={() => navigate('/FindNGOs')}
+                                className="mt-4 px-6 py-2 bg-blue-500 text-white rounded"
+                            >
+                                Find NGOs
+                            </button>
+                            </div>
                         </>
                     )}
                 </div>
