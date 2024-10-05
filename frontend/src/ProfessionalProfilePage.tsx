@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-const AddProf_profile_pg: React.FC = () => {
+const ProfessionalProfilePage: React.FC = () => {
     const navigate = useNavigate();
     
     // State to store form input values
@@ -118,4 +118,4 @@ const AddProf_profile_pg: React.FC = () => {
     );
 };
 
-export default AddProf_profile_pg;
+export default ProfessionalProfilePage;
