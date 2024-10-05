@@ -1,5 +1,4 @@
 import mongoose from "mongoose";
-import Position from "./position.model.js"; // Import the Position model
 
 // Define the NGO schema
 const ngoSchema = mongoose.Schema({
@@ -23,10 +22,6 @@ const ngoSchema = mongoose.Schema({
         type: String,
         required: true,
     },
-    // openPositions: {
-    //     type: [Position.schema], // Use the Position schema
-    //     required: true,
-    // },
 });
 
 // Export the NGO model
