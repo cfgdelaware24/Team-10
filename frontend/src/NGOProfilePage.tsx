@@ -24,10 +24,8 @@ const NGOProfilePage: React.FC = () => {
     // Handle form submission
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
-        // You can handle the form submission logic here (e.g., send data to the backend)
-        console.log('Form submitted:', formValues);
         // Redirect to open positions page
-        navigate('/openPositions');
+        navigate('/openPositionsPage');
     };
 
     return (
