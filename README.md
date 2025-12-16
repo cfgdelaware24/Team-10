@@ -53,3 +53,4 @@ The click-based matching system was developed to simplify the process of connect
    - **Optimized for performance**: Queries were optimized for fast data retrieval, ensuring that when users searched or submitted their profiles, the matching results were delivered in real-time.
    - **Collaboration**: Although the data management was handled primarily by other team members, it played a critical role in ensuring the efficiency of the matching system and the overall user experience.
 
+ <br /> <br /> The code ("Code") in this repository was created solely by the student teams during a coding competition hosted by JPMorgan Chase Bank, N.A. ("JPMC"). JPMC did not create or contribute to the development of the Code. This Code is provided AS IS and JPMC makes no warranty of any kind, express or implied, as to the Code, including but not limited to, merchantability, satisfactory quality, non-infringement, title or fitness for a particular purpose or use.
